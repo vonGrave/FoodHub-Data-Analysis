@@ -1,36 +1,66 @@
 ![foodhub](https://github.com/user-attachments/assets/bc175cda-4adf-46a6-bbfd-ab7dedefb0ab)
 
 
-**Context**
+# FoodHub Order Analysis Project
 
-The number of restaurants in New York is increasing day by day. Lots of students and busy professionals rely on those restaurants due to their hectic lifestyles. Online food delivery service is a great option for them. It provides them with good food from their favorite restaurants. A food aggregator company FoodHub offers access to multiple restaurants through a single smartphone app.
+## Project Overview
+This project analyzes order data from FoodHub, a food delivery company, to understand customer behavior, delivery performance, and revenue patterns. The analysis provides insights into cuisine preferences, restaurant popularity, delivery timing, and customer satisfaction.
 
-The app allows the restaurants to receive a direct online order from a customer. The app assigns a delivery person from the company to pick up the order after it is confirmed by the restaurant. The delivery person then uses the map to reach the restaurant and waits for the food package. Once the food package is handed over to the delivery person, he/she confirms the pick-up in the app and travels to the customer's location to deliver the food. The delivery person confirms the drop-off in the app after delivering the food package to the customer. The customer can rate the order in the app. The food aggregator earns money by collecting a fixed margin of the delivery order from the restaurants.
+## Dataset Description
+The dataset (foodhub_order.csv) contains information about food delivery orders with the following features:
+- order_id: Unique identifier for each order
+- customer_id: Unique identifier for each customer
+- restaurant_name: Name of the restaurant
+- cuisine_type: Type of cuisine (e.g., American, Japanese, Italian)
+- cost_of_the_order: Cost of the order in dollars
+- day_of_the_week: Weekday or Weekend
+- rating: Customer rating (1-5, or "Not given")
+- food_preparation_time: Time taken to prepare the food (in minutes)
+- delivery_time: Time taken to deliver the order (in minutes)
 
-**Objective**
+## Key Findings
+1. Cuisine Preferences
+- American, Japanese, Italian, and Chinese cuisines account for ~80% of orders
+- Shake Shack is the most frequently ordered from restaurant
 
-The food aggregator company has stored the data of the different orders made by the registered customers in their online portal. They want to analyze the data to get a fair idea about the demand of different restaurants which will help them in enhancing their customer experience. Suppose you are hired as a Data Scientist in this company and the Data Science team has shared some of the key questions that need to be answered. Perform the data analysis to find answers to questions that will help the company to improve the business.
+2. Order Patterns
+- Higher order volumes during weekends
+- Faster delivery times during weekends (22 minutes vs 28 minutes on weekdays)
 
-**Data Description**
+3. Delivery Performance
+- 10.54% of orders take more than 60 minutes for total delivery
+- Average delivery times are shorter on weekends
 
-The data contains the different data related to a food order. The detailed data dictionary is given below.
+4. Customer Feedback
+- Approximately 39% of orders lack customer ratings
 
-**Data Dictionary**
+## Revenue Analysis
+Custom revenue calculation based on order cost:
+- 25% revenue for orders > $20
+- 15% revenue for orders > $5
+- 0% revenue for orders ≤ $5
+Total net revenue: $6,166.30
 
-order_id: Unique ID of the order
+## Libraries Used
+- numpy
+- pandas
+- matplotlib
+- seaborn
 
-customer_id: ID of the customer who ordered the food
+## Business Recommendations
+1. Focus partnerships on popular cuisine types (American, Japanese, Italian, Chinese)
+2. Implement strategic promotions with high-performing restaurants
+3. Optimize weekend operations with additional delivery capacity
+4. Improve rating collection system to increase customer feedback
+5. Implement delivery time optimization strategies to reduce delays
 
-restaurant_name: Name of the restaurant
+## Running the Analysis
+1. Ensure all required libraries are installed
+2. Place the foodhub_order.csv file in the working directory
+3. Run the Jupyter notebook FoodHub_Data_Analysis.ipynb
 
-cuisine_type: Cuisine ordered by the customer
-
-cost_of_the_order: Cost of the order
-
-day_of_the_week: Indicates whether the order is placed on a weekday or weekend (The weekday is from Monday to Friday and the weekend is Saturday and Sunday)
-
-rating: Rating given by the customer out of 5
-
-food_preparation_time: Time (in minutes) taken by the restaurant to prepare the food. This is calculated by taking the difference between the timestamps of the restaurant's order confirmation and the delivery person's pick-up confirmation
-
-delivery_time: Time (in minutes) taken by the delivery person to deliver the food package. This is calculated by taking the difference between the timestamps of the delivery person's pick-up confirmation and drop-off information
+## Future Work
+- Detailed analysis of customer segmentation
+- Predictive modeling for delivery times
+- Geographic analysis of order patterns
+- Customer retention analysis
